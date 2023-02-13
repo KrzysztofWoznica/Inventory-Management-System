@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="WPFInventoryManagementSystem.UI.Views.MenuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPFInventoryManagementSystem.UI.Views"
+             xmlns:converters="clr-namespace:WPFInventoryManagementSystem.UI.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="250"> 
+    
+    
+    <Grid Background="{StaticResource BackgroundDarkBlueBrush}" >
+        <StackPanel Orientation="Vertical">
+            <StackPanel.Resources>
+                <converters:ExpanderToBooleanConverter x:Key="ExpanderToBooleanConverter"/>
+            </StackPanel.Resources>
+            <Expander Header="Materials" Style="{StaticResource NavigationBarExpander}"
+                      IsExpanded="{Binding SelectedExpander, Mode=TwoWay, Converter={StaticResource ExpanderToBooleanConverter}, ConverterParameter=1}">
+                <StackPanel>
+                    <Button Style="{StaticResource NavigationMenuButton}">Parts</Button>
+                    <Button Style="{StaticResource NavigationMenuButton}">Inventory</Button>
+                    <Button Style="{StaticResource NavigationMenuButton}">Transfer Order</Button>                    
+                </StackPanel>
+            </Expander>
+            <Expander Header="TestItem" Style="{StaticResource NavigationBarExpander}"
+                      IsExpanded="{Binding SelectedExpander, Mode=TwoWay, Converter={StaticResource ExpanderToBooleanConverter}, ConverterParameter=2}">
+                <StackPanel>
+                    <Button Style="{StaticResource NavigationMenuButton}">item1</Button>
+                    <Button Style="{StaticResource NavigationMenuButton}">item2</Button>
+                    <Button Style="{StaticResource NavigationMenuButton}">item3</Button>
+                </StackPanel>
+            </Expander>     
+       
+        </StackPanel>
+    </Grid>
+</UserControl>
